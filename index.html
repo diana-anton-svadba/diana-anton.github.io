@@ -5,8 +5,6 @@
   <meta charset="UTF-8">
   <title>Naša svadba</title>
 
-  <!-- fonty -->
-
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Raleway:wght@300&display=swap" rel="stylesheet">
 
   <style>
@@ -33,7 +31,6 @@
       font-weight: 300;
       letter-spacing: 4px;
       line-height: 1.3;
-      margin-bottom: 20px;
     }
 
     .line {
@@ -43,36 +40,43 @@
       margin: 20px auto;
     }
 
-    h2 {
-      font-size: 14px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-top: 40px;
-      color: #6a6a6a;
-    }
-
     p {
       font-size: 18px;
-      margin: 8px 0;
     }
 
-    a {
-      color: #3f3f3f;
-      text-decoration: none;
-      border-bottom: 1px solid #aaa;
+    /* tlačidlá */
+    .button {
+      margin-top: 30px;
+      padding: 12px;
+      border: 1px solid #bfb8ae;
+      cursor: pointer;
+      letter-spacing: 2px;
+      font-size: 14px;
     }
 
-    a:hover {
-      opacity: 0.6;
+    /* skrytý obsah */
+    .content {
+      display: none;
+      margin-top: 20px;
     }
 
     iframe {
       width: 100%;
       height: 300px;
       border: none;
-      margin-top: 20px;
     }
   </style>
+
+  <script>
+    function toggle(id) {
+      var x = document.getElementById(id);
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+  </script>
 
 </head>
 
@@ -88,50 +92,46 @@
 <div class="line"></div>
 
 <p>Vitajte na našej svadobnej stránke</p>
+<p>19. september 2026, Piešťany</p>
 
-<h2>Dátum</h2>
-<p>19. september 2026</p>
+<!-- MAPA -->
+<div class="button" onclick="toggle('mapa')">MAPA</div>
 
-<h2>Miesto</h2>
-<p>Piešťany</p>
+<div id="mapa" class="content">
+  <iframe src="https://maps.google.com/maps?q=Piešťany&z=13&output=embed"></iframe>
 
-<div class="line"></div>
+  <p>Kaplnka Božského Srdca Ježišovho</p>
+  <p><a href="https://www.google.com/maps/search/?api=1&query=Kaplnka+Bozskeho+Srdca+Jezisovho+Piestany" target="_blank">Zobraziť na mape</a></p>
 
-<h2>Mapa</h2>
+  <p>Kursalon</p>
+  <p><a href="https://www.google.com/maps/search/?api=1&query=Kursalon+Piestany" target="_blank">Zobraziť na mape</a></p>
 
-<iframe src="https://maps.google.com/maps?q=Piešťany&z=13&output=embed"></iframe>
+  <p>Hotel Park Avenue</p>
+  <p><a href="https://www.google.com/maps/search/?api=1&query=Hotel+Park+Avenue+Piestany" target="_blank">Zobraziť na mape</a></p>
 
-<h2>Sobáš</h2>
-<p>Kaplnka Božského Srdca Ježišovho</p>
-<p>
-  <a href="https://www.google.com/maps/search/?api=1&query=Kaplnka+Bozskeho+Srdca+Jezisovho+Piestany" target="_blank">
-    Zobraziť na mape
-  </a>
-</p>
+  <p>Penzión Diana</p>
+  <p><a href="https://www.google.com/maps/search/?api=1&query=Penzion+Diana+Piestany" target="_blank">Zobraziť na mape</a></p>
+</div>
 
-<h2>Svadobná zábava</h2>
-<p>Kursalon</p>
-<p>
-  <a href="https://www.google.com/maps/search/?api=1&query=Kursalon+Piestany" target="_blank">
-    Zobraziť na mape
-  </a>
-</p>
+<!-- PROGRAM -->
+<div class="button" onclick="toggle('program')">SVADOBNÝ PROGRAM</div>
 
-<h2>Ubytovanie</h2>
+<div id="program" class="content">
+  <p>15:00 – Sobáš</p>
+  <p>17:00 – Večera</p>
+  <p>19:00 – Prvý tanec</p>
+  <p>20:00 – Zábava</p>
+  <p>23:00 – Čepčenie</p>
+</div>
 
-<p>Hotel Park Avenue</p>
-<p>
-  <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Park+Avenue+Piestany" target="_blank">
-    Zobraziť na mape
-  </a>
-</p>
+<!-- MENU -->
+<div class="button" onclick="toggle('menu')">SVADOBNÉ MENU</div>
 
-<p>Penzión Diana</p>
-<p>
-  <a href="https://www.google.com/maps/search/?api=1&query=Penzion+Diana+Piestany" target="_blank">
-    Zobraziť na mape
-  </a>
-</p>
+<div id="menu" class="content">
+  <p>Polievka</p>
+  <p>Hlavné jedlo</p>
+  <p>Dezert</p>
+</div>
 ```
 
   </div>
