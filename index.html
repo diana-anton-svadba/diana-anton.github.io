@@ -18,11 +18,9 @@
     }
 
     .container {
-      max-width: 600px;
+      max-width: 700px;
       margin: auto;
-      border: 1px solid #d8d2c8;
       padding: 50px 30px;
-      background-color: rgba(255,255,255,0.4);
     }
 
     h1 {
@@ -42,28 +40,70 @@
 
     p {
       font-size: 18px;
+      line-height: 1.6;
     }
 
-    /* tlačidlá */
+    /* príbeh */
+    .story {
+      margin: 40px 0;
+      font-size: 17px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* tlačidlá vedľa seba */
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
     .button {
-      margin-top: 30px;
-      padding: 12px;
-      border: 1px solid #bfb8ae;
       cursor: pointer;
       letter-spacing: 2px;
-      font-size: 14px;
+      font-size: 13px;
+      color: #6a6a6a;
+      position: relative;
     }
 
-    /* skrytý obsah */
+    .button::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 1px;
+      background: #6a6a6a;
+      transition: 0.3s;
+      margin: 5px auto 0;
+    }
+
+    .button:hover::after {
+      width: 100%;
+    }
+
+    /* obsah */
     .content {
       display: none;
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     iframe {
       width: 100%;
       height: 300px;
       border: none;
+      margin-top: 15px;
+    }
+
+    a {
+      color: #3f3f3f;
+      text-decoration: none;
+      border-bottom: 1px solid #aaa;
+    }
+
+    a:hover {
+      opacity: 0.6;
     }
   </style>
 
@@ -91,12 +131,25 @@
 
 <div class="line"></div>
 
-<p>Vitajte na našej svadobnej stránke</p>
-<p>19. september 2026, Piešťany</p>
+<p>Vitajte na našej svadobnej stránke ♥</p>
+
+<!-- PRÍBEH -->
+<div class="story">
+  <p>
+    Tu si môžete napísať váš príbeh — ako ste sa spoznali, čo vás spojilo,
+    alebo čokoľvek, čo chcete zdieľať s vašimi hosťami.
+    Tento priestor je ideálny na pár milých viet o vás dvoch.
+  </p>
+</div>
+
+<!-- TLAČIDLÁ -->
+<div class="buttons">
+  <div class="button" onclick="toggle('mapa')">MAPA</div>
+  <div class="button" onclick="toggle('program')">PROGRAM</div>
+  <div class="button" onclick="toggle('menu')">MENU</div>
+</div>
 
 <!-- MAPA -->
-<div class="button" onclick="toggle('mapa')">MAPA</div>
-
 <div id="mapa" class="content">
   <iframe src="https://maps.google.com/maps?q=Piešťany&z=13&output=embed"></iframe>
 
@@ -114,19 +167,14 @@
 </div>
 
 <!-- PROGRAM -->
-<div class="button" onclick="toggle('program')">SVADOBNÝ PROGRAM</div>
-
 <div id="program" class="content">
   <p>15:00 – Sobáš</p>
   <p>17:00 – Večera</p>
   <p>19:00 – Prvý tanec</p>
   <p>20:00 – Zábava</p>
-  <p>23:00 – Čepčenie</p>
 </div>
 
 <!-- MENU -->
-<div class="button" onclick="toggle('menu')">SVADOBNÉ MENU</div>
-
 <div id="menu" class="content">
   <p>Polievka</p>
   <p>Hlavné jedlo</p>
