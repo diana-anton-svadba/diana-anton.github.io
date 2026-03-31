@@ -5,61 +5,81 @@
   <meta charset="UTF-8">
   <title>Naša svadba</title>
 
-  <!-- Google fonty -->
+  <!-- elegantné fonty -->
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Raleway:wght@300&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       background-color: #f2ede6; /* dark ivory */
+      color: #3f3f3f;
       font-family: 'Raleway', sans-serif;
       text-align: center;
-      color: #3a3a3a; /* tmavošedá */
-      padding: 60px 20px;
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
     }
 
     h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 58px;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .line {
+      width: 80px;
+      height: 1px;
+      background-color: #bfb8ae;
+      margin: 20px auto;
     }
 
     h2 {
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
       margin-top: 40px;
-      font-size: 22px;
-      color: #5a5a5a;
-      letter-spacing: 1px;
+      color: #6a6a6a;
     }
 
     p {
-      font-size: 20px;
-      margin: 5px 0;
+      font-size: 18px;
+      margin: 8px 0;
+      letter-spacing: 1px;
     }
 
-    .divider {
-      width: 60px;
-      height: 1px;
-      background-color: #bbb;
-      margin: 20px auto;
-    }
   </style>
 
 </head>
 
 <body>
 
-  <h1>Diana & Anton</h1>
-  <div class="divider"></div>
+  <div class="container">
+    <div class="line"></div>
 
-  <p>Vitajte na našej svadobnej stránke</p>
+```
+<h1>Diana<br>&<br>Anton</h1>
 
-  <h2>Dátum</h2>
-  <p>19. september 2026</p>
+<div class="line"></div>
 
-  <h2>Miesto</h2>
-  <p>Piešťany</p>
+<p>Vitajte na našej svadobnej stránke</p>
+
+<h2>Dátum</h2>
+<p>19. september 2026</p>
+
+<h2>Miesto</h2>
+<p>Piešťany</p>
+
+<div class="line"></div>
+```
+
+  </div>
 
 </body>
 </html>
+
