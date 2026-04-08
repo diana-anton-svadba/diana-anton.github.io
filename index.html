@@ -113,16 +113,21 @@
     }
   </style>
 
-  <script>
-    function toggle(id) {
-      var x = document.getElementById(id);
-      if (x.style.display === "block") {
-        x.style.display = "none";
+<script>
+  function toggle(id) {
+    const sections = ["mapa", "program", "menu"];
+
+    sections.forEach(section => {
+      const el = document.getElementById(section);
+
+      if (section === id) {
+        el.style.display = (el.style.display === "block") ? "none" : "block";
       } else {
-        x.style.display = "block";
+        el.style.display = "none";
       }
-    }
-  </script>
+    });
+  }
+</script>
 
 </head>
 
