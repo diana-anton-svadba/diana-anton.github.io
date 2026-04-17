@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naša svadba</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Raleway:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -29,6 +29,7 @@
       font-weight: 300;
       letter-spacing: 4px;
       line-height: 1.3;
+      margin: 0;
     }
 
     .line {
@@ -44,11 +45,49 @@
     }
 
     .story {
-      margin: 40px 0;
+      margin: 40px auto;
       font-size: 17px;
       max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+    }
+
+    .countdown {
+      margin: 35px auto 15px;
+      padding: 24px 20px;
+      max-width: 420px;
+      border: 1px solid #d8d2c8;
+      background-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .countdown-title {
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #7a7269;
+      margin-bottom: 18px;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .countdown-box {
+      padding: 10px 6px;
+    }
+
+    .countdown-value {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .countdown-label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #7a7269;
     }
 
     .buttons {
@@ -73,7 +112,7 @@
       width: 0;
       height: 1px;
       background: #6a6a6a;
-      transition: 0.3s;
+      transition: width 0.3s ease;
       margin: 5px auto 0;
     }
 
@@ -81,7 +120,6 @@
       width: 100%;
     }
 
-    /* 👉 ČIARA (už správne) */
     .divider-line {
       width: 100%;
       max-width: 300px;
@@ -93,6 +131,7 @@
     .content {
       display: none;
       margin-top: 30px;
+      animation: fadeIn 0.3s ease;
     }
 
     iframe {
@@ -111,93 +150,171 @@
     a:hover {
       opacity: 0.6;
     }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 50px 16px;
+      }
+
+      .container {
+        padding: 30px 16px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      p {
+        font-size: 17px;
+      }
+
+      .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   </style>
 
-<script>
-  function toggle(id) {
-    const sections = ["mapa", "program", "menu"];
+  <script>
+    function toggle(id) {
+      const sections = ["mapa", "harmonogram", "menu"];
 
-    sections.forEach(section => {
-      const el = document.getElementById(section);
+      sections.forEach(section => {
+        const el = document.getElementById(section);
 
-      if (section === id) {
-        el.style.display = (el.style.display === "block") ? "none" : "block";
-      } else {
-        el.style.display = "none";
+        if (!el) {
+          return;
+        }
+
+        if (section === id) {
+          el.style.display = el.style.display === "block" ? "none" : "block";
+        } else {
+          el.style.display = "none";
+        }
+      });
+    }
+
+    function updateCountdown() {
+      const weddingDate = new Date("2026-09-19T15:00:00");
+      const now = new Date();
+      const difference = weddingDate - now;
+
+      const daysEl = document.getElementById("days");
+      const hoursEl = document.getElementById("hours");
+      const minutesEl = document.getElementById("minutes");
+      const secondsEl = document.getElementById("seconds");
+
+      if (!daysEl || !hoursEl || !minutesEl || !secondsEl) {
+        return;
       }
+
+      if (difference <= 0) {
+        daysEl.textContent = "0";
+        hoursEl.textContent = "0";
+        minutesEl.textContent = "0";
+        secondsEl.textContent = "0";
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((difference / (1000 * 60)) % 60);
+      const seconds = Math.floor((difference / 1000) % 60);
+
+      daysEl.textContent = days;
+      hoursEl.textContent = hours;
+      minutesEl.textContent = minutes;
+      secondsEl.textContent = seconds;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
     });
-  }
-</script>
-
+  </script>
 </head>
-
 <body>
-
   <div class="container">
+    <div class="line"></div>
 
-```
-<div class="line"></div>
+    <h1>Diana<br>&<br>Anton</h1>
 
-<h1>Diana<br>&<br>Anton</h1>
+    <div class="line"></div>
 
-<div class="line"></div>
+    <p>Vitajte na našej svadobnej stránke ♥</p>
+    <p style="letter-spacing: 2px; margin-top: 10px;">19. september 2026</p>
 
-<p>Vitajte na našej svadobnej stránke ♥</p>
-<p style="letter-spacing: 2px; margin-top: 10px;">19. september 2026</p>
-<div class="story">
-  <p>
-    Kde sa všetko začalo, tam aj pokračuje. Prvý pohľad v Piešťanskom pivovare, prvá pusa neďaleko a uzavretie manželstva tiež v Piešťanoch. Medzitým sa nám za 9 rokov spoločného života prihodili dve krásne deti a dva tituly, byt a mačka, ale láska, tá za tie roky narástla. 
-  </p>
-</div>
+    <div class="countdown">
+      <div class="countdown-title">ODPOČÍTAVANIE DO NÁŠHO DŇA</div>
+      <div class="countdown-grid">
+        <div class="countdown-box">
+          <span id="days" class="countdown-value">0</span>
+          <span class="countdown-label">DNÍ</span>
+        </div>
+        <div class="countdown-box">
+          <span id="hours" class="countdown-value">0</span>
+          <span class="countdown-label">HODÍN</span>
+        </div>
+        <div class="countdown-box">
+          <span id="minutes" class="countdown-value">0</span>
+          <span class="countdown-label">MINÚT</span>
+        </div>
+        <div class="countdown-box">
+          <span id="seconds" class="countdown-value">0</span>
+          <span class="countdown-label">SEKÚND</span>
+        </div>
+      </div>
+    </div>
 
-<!-- tlačidlá -->
-<div class="buttons">
-  <div class="button" onclick="toggle('mapa')">MAPA</div>
-  <div class="button" onclick="toggle('program')">PROGRAM</div>
-  <div class="button" onclick="toggle('menu')">MENU</div>
-</div>
+    <div class="story">
+      <p>
+        Kde sa všetko začalo, tam aj pokračuje. Prvý pohľad v Piešťanskom pivovare,
+        prvá pusa neďaleko a uzavretie manželstva tiež v Piešťanoch. Medzitým sa nám
+        za 9 rokov spoločného života prihodili dve krásne deti a dva tituly, byt a mačka,
+        ale láska, tá za tie roky narástla.
+      </p>
+    </div>
 
-<!-- 👉 čiara POD tlačidlami -->
-<div class="divider-line"></div>
+    <div class="buttons">
+      <div class="button" onclick="toggle('mapa')">MAPA</div>
+      <div class="button" onclick="toggle('harmonogram')">HARMONOGRAM</div>
+      <div class="button" onclick="toggle('menu')">MENU</div>
+    </div>
 
-<!-- MAPA -->
-<div id="mapa" class="content">
-  <iframe src="https://maps.google.com/maps?q=Piešťany&z=13&output=embed"></iframe>
+    <div class="divider-line"></div>
 
-  <p><a href="https://www.google.com/maps/search/?api=1&query=Kaplnka+Bozskeho+Srdca+Jezisovho+Piestany" target="_blank">
-    Kaplnka Božského Srdca Ježišovho
-  </a></p>
+    <div id="mapa" class="content">
+      <iframe src="https://maps.google.com/maps?q=Piešťany&z=13&output=embed"></iframe>
 
-  <p><a href="https://www.google.com/maps/search/?api=1&query=Kursalon+Piestany" target="_blank">
-    Kursalon
-  </a></p>
+      <p><a href="https://www.google.com/maps/search/?api=1&query=Kaplnka+Bozskeho+Srdca+Jezisovho+Piestany" target="_blank" rel="noopener noreferrer">Kaplnka Božského Srdca Ježišovho</a></p>
+      <p><a href="https://www.google.com/maps/search/?api=1&query=Kursalon+Piestany" target="_blank" rel="noopener noreferrer">Kursalon</a></p>
+      <p><a href="https://www.google.com/maps/search/?api=1&query=Hotel+Park+Avenue+Piestany" target="_blank" rel="noopener noreferrer">Hotel Park Avenue</a></p>
+      <p><a href="https://www.google.com/maps/search/?api=1&query=Penzion+Diana+Piestany" target="_blank" rel="noopener noreferrer">Penzión Diana</a></p>
+    </div>
 
-  <p><a href="https://www.google.com/maps/search/?api=1&query=Hotel+Park+Avenue+Piestany" target="_blank">
-    Hotel Park Avenue
-  </a></p>
+    <div id="harmonogram" class="content">
+      <p>15:00 – Sobáš</p>
+      <p>17:00 – Večera</p>
+      <p>19:00 – Prvý tanec</p>
+      <p>20:00 – Zábava</p>
+    </div>
 
-  <p><a href="https://www.google.com/maps/search/?api=1&query=Penzion+Diana+Piestany" target="_blank">
-    Penzión Diana
-  </a></p>
-</div>
-
-<!-- HARMONOGRAM -->
-<div id="harmonogram" class="content">
-  <p>15:00 – Sobáš</p>
-  <p>17:00 – Večera</p>
-  <p>19:00 – Prvý tanec</p>
-  <p>20:00 – Zábava</p>
-</div>
-
-<!-- MENU -->
-<div id="menu" class="content">
-  <p>Polievka</p>
-  <p>Hlavné jedlo</p>
-  <p>Dezert</p>
-</div>
-```
-
+    <div id="menu" class="content">
+      <p>Polievka</p>
+      <p>Hlavné jedlo</p>
+      <p>Dezert</p>
+    </div>
   </div>
-
 </body>
 </html>
