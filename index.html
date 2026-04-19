@@ -6,27 +6,28 @@
   <title>Naša svadba</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; background-color: #f2ede6; color: #3f3f3f; font-family: 'Raleway', sans-serif; text-align: center; padding: 80px 20px; }
-    .container { max-width: 700px; margin: auto; padding: 50px 30px; }
+    body { margin: 0; background-color: #f2ede6; color: #3f3f3f; font-family: 'Raleway', sans-serif; text-align: center; padding: 60px 20px; }
+    .container { max-width: 700px; margin: auto; padding: 40px 20px; }
     h1 { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; letter-spacing: 4px; line-height: 1.3; margin: 0; }
     .line { width: 80px; height: 1px; background-color: #bfb8ae; margin: 20px auto; }
-    p { font-size: 18px; line-height: 1.6; }
-    .hero-image { margin: 40px auto 20px; max-width: 500px; }
-    .hero-image img { width: 100%; border-radius: 10px; display: block; background: #eee; min-height: 200px; }
+    .hero-image { margin: 30px auto; max-width: 500px; }
+    .hero-image img { width: 100%; border-radius: 5px; display: block; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
     .rsvp-section { margin: 40px 0; }
-    .btn-rsvp { display: inline-block; padding: 15px 40px; border: 1px solid #3f3f3f; background: transparent; color: #3f3f3f; text-decoration: none; font-size: 12px; letter-spacing: 3px; transition: 0.3s; font-weight: 400; cursor: pointer; }
+    .btn-rsvp { display: inline-block; padding: 15px 40px; border: 1px solid #3f3f3f; background: transparent; color: #3f3f3f; text-decoration: none; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; transition: 0.3s; cursor: pointer; }
     .btn-rsvp:hover { background: #3f3f3f; color: #f2ede6; }
-    .buttons { display: flex; justify-content: center; gap: 30px; margin-top: 40px; flex-wrap: wrap; }
-    .button { cursor: pointer; letter-spacing: 2px; font-size: 13px; color: #6a6a6a; position: relative; padding: 5px; }
-    .button::after { content: ""; display: block; width: 0; height: 1px; background: #6a6a6a; transition: width 0.3s ease; margin: 5px auto 0; }
-    .button:hover::after { width: 100%; }
-    .divider-line { width: 100%; max-width: 300px; height: 1px; background-color: #d8d2c8; margin: 30px auto 10px; }
-    .content { display: none; margin-top: 30px; animation: fadeIn 0.3s ease; }
-    .map-nav { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; align-items: center; }
-    .map-link { font-size: 13px; letter-spacing: 1px; cursor: pointer; color: #7a7269; text-decoration: underline; }
-    iframe { width: 100%; height: 400px; border: 1px solid #d8d2c8; margin-top: 15px; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 640px) { body { padding: 50px 16px; } h1 { font-size: 40px; } }
+    .buttons { display: flex; justify-content: center; gap: 25px; margin-top: 40px; flex-wrap: wrap; }
+    .button { cursor: pointer; letter-spacing: 2px; font-size: 13px; color: #6a6a6a; text-transform: uppercase; }
+    .button:hover { color: #000; font-weight: 600; }
+    .divider-line { width: 100%; max-width: 300px; height: 1px; background-color: #d8d2c8; margin: 30px auto; }
+    .content { display: none; margin-top: 20px; animation: fadeIn 0.4s ease; }
+    
+    /* MAPA A NAVIGÁCIA */
+    .map-nav { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .map-link { font-size: 12px; letter-spacing: 1px; cursor: pointer; color: #7a7269; text-decoration: underline; text-transform: uppercase; }
+    .map-link:hover { color: #000; }
+    iframe { width: 100%; height: 400px; border: 1px solid #d8d2c8; border-radius: 3px; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
@@ -35,6 +36,62 @@
     <h1>Diana<br>&<br>Anton</h1>
     <div class="line"></div>
 
+    <p>Vitajte na našej svadobnej stránke ♥</p>
+    
+    <div class="hero-image">
+      <img src="images/rings.jpg" alt="Diana a Anton">
+    </div>
+
+    <div class="rsvp-section">
+      <p style="font-size: 13px; margin-bottom: 20px; color: #7a7269;">Prosíme o potvrdenie vašej účasti do 31.7.2026</p>
+      <a href="https://yesdaystudio.github.io/Klientska-zona-premium/?meno=Host" class="btn-rsvp">Potvrdiť účasť</a>
+    </div>
+
+    <div class="buttons">
+      <div class="button" onclick="show('mapa')">Mapa</div>
+      <div class="button" onclick="show('harmonogram')">Harmonogram</div>
+      <div class="button" onclick="show('menu')">Menu</div>
+    </div>
+
+    <div class="divider-line"></div>
+
+    <div id="mapa" class="content">
+      <div class="map-nav">
+        <span class="map-link" onclick="updateMap('kaplnka')">📍 Kaplnka Božského Srdca</span>
+        <span class="map-link" onclick="updateMap('kursalon')">🍴 Kursalon (Oslava)</span>
+        <span class="map-link" onclick="updateMap('park')">🏨 Hotel Park Avenue</span>
+        <span class="map-link" onclick="updateMap('diana')">🏡 Penzión Diana</span>
+      </div>
+      <iframe id="wedding-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.0441469794697!2d17.83838307689133!3d48.58983192023907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714e3895e7c8f97%3A0x7e8b0b8c6a6f6c5c!2sKaplnka%20Bo%C5%BEsk%C3%A9ho%20Srdca%20Je%C5%BEi%C5%A1ovho!5e0!3m2!1ssk!2ssk!4v1715600000000!5m2!1ssk!2ssk"></iframe>
+    </div>
+
+    <div id="harmonogram" class="content">
+      <p><strong>15:00</strong> – Sobáš</p>
+      <p><strong>17:00</strong> – Hostina v Kursalone</p>
+      <p><strong>20:00</strong> – Prvý tanec a zábava</p>
+    </div>
+
+    <div id="menu" class="content">
+      <p>Slepačí vývar so širokými rezancami</p>
+      <p>Sviečková na smotane, domáca knedľa</p>
+      <p>Svadobná torta a dezerty</p>
+    </div>
+  </div>
+
+  <script>
+    function show(id) {
+      const parts = ["mapa", "harmonogram", "menu"];
+      parts.forEach(p => {
+        document.getElementById(p).style.display = (p === id) ? "block" : "none";
+      });
+    }
+
+    function updateMap(place) {
+      const frame = document.getElementById('wedding-map');
+      if (place === 'kaplnka') frame.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.0441469794697!2d17.83838307689133!3d48.58983192023907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714e3895e7c8f97%3A0x7e8b0b8c6a6f6c5c!2sKaplnka%20Bo%C5%BEsk%C3%A9ho%20Srdca%20Je%C5%BEi%C5%A1ovho!5e0!3m2!1ssk!2ssk!4v1715600000000!5m2!1ssk!2ssk";
+      if (place === 'kursalon') frame.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.042588321453!2d17.84277737689133!3d48.58976692023724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714e38933b9b473%3A0xc3c5d6e27622c66d!2sKursalon%20Pie%C5%A1%C5%A5any!5e0!3m2!1ssk!2ssk!4v1715600100000!5m2!1ssk!2ssk";
+      if (place === 'park') frame.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.088331908611!2d17.839810376891295!3d48.59124442028688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714e3896504a985%3A0xe54d6f76f7b15a6e!2sHotel%20Park%20Avenue!5e0!3m2!1ssk!2ssk!4v1715600200000!5m2!1ssk!2ssk";
+      if (place === 'diana') frame.src = "
     <p>Vitajte na našej svadobnej stránke ♥</p>
     <div class="hero-image">
       <img src="images/rings.jpg" alt="Svadobné prstene">
