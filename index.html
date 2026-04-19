@@ -90,6 +90,29 @@
       color: #7a7269;
     }
 
+    /* ŠTÝL PRE RSVP TLAČIDLO */
+    .rsvp-section {
+      margin: 40px 0;
+    }
+
+    .btn-rsvp {
+      display: inline-block;
+      padding: 15px 40px;
+      border: 1px solid #3f3f3f;
+      background: transparent;
+      color: #3f3f3f;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 3px;
+      transition: all 0.4s ease;
+      font-weight: 400;
+    }
+
+    .btn-rsvp:hover {
+      background: #3f3f3f;
+      color: #f2ede6;
+    }
+
     .buttons {
       display: flex;
       justify-content: center;
@@ -152,51 +175,25 @@
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(6px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 640px) {
-      body {
-        padding: 50px 16px;
-      }
-
-      .container {
-        padding: 30px 16px;
-      }
-
-      h1 {
-        font-size: 40px;
-      }
-
-      p {
-        font-size: 17px;
-      }
-
-      .countdown-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      body { padding: 50px 16px; }
+      .container { padding: 30px 16px; }
+      h1 { font-size: 40px; }
+      p { font-size: 17px; }
+      .countdown-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 
   <script>
     function toggle(id) {
       const sections = ["mapa", "harmonogram", "menu"];
-
       sections.forEach(section => {
         const el = document.getElementById(section);
-
-        if (!el) {
-          return;
-        }
-
+        if (!el) return;
         if (section === id) {
           el.style.display = el.style.display === "block" ? "none" : "block";
         } else {
@@ -215,15 +212,11 @@
       const minutesEl = document.getElementById("minutes");
       const secondsEl = document.getElementById("seconds");
 
-      if (!daysEl || !hoursEl || !minutesEl || !secondsEl) {
-        return;
-      }
+      if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
       if (difference <= 0) {
-        daysEl.textContent = "0";
-        hoursEl.textContent = "0";
-        minutesEl.textContent = "0";
-        secondsEl.textContent = "0";
+        daysEl.textContent = "0"; hoursEl.textContent = "0";
+        minutesEl.textContent = "0"; secondsEl.textContent = "0";
         return;
       }
 
@@ -247,9 +240,7 @@
 <body>
   <div class="container">
     <div class="line"></div>
-
     <h1>Diana<br>&<br>Anton</h1>
-
     <div class="line"></div>
 
     <p>Vitajte na našej svadobnej stránke ♥</p>
@@ -258,23 +249,16 @@
     <div class="countdown">
       <div class="countdown-title">ODPOČÍTAVANIE DO NÁŠHO DŇA</div>
       <div class="countdown-grid">
-        <div class="countdown-box">
-          <span id="days" class="countdown-value">0</span>
-          <span class="countdown-label">DNÍ</span>
-        </div>
-        <div class="countdown-box">
-          <span id="hours" class="countdown-value">0</span>
-          <span class="countdown-label">HODÍN</span>
-        </div>
-        <div class="countdown-box">
-          <span id="minutes" class="countdown-value">0</span>
-          <span class="countdown-label">MINÚT</span>
-        </div>
-        <div class="countdown-box">
-          <span id="seconds" class="countdown-value">0</span>
-          <span class="countdown-label">SEKÚND</span>
-        </div>
+        <div class="countdown-box"><span id="days" class="countdown-value">0</span><span class="countdown-label">DNÍ</span></div>
+        <div class="countdown-box"><span id="hours" class="countdown-value">0</span><span class="countdown-label">HODÍN</span></div>
+        <div class="countdown-box"><span id="minutes" class="countdown-value">0</span><span class="countdown-label">MINÚT</span></div>
+        <div class="countdown-box"><span id="seconds" class="countdown-value">0</span><span class="countdown-label">SEKÚND</span></div>
       </div>
+    </div>
+
+    <div class="rsvp-section">
+      <p style="font-size: 14px; margin-bottom: 20px; color: #7a7269;">Prosíme o potvrdenie vašej účasti do 31.7.2026</p>
+      <a href="https://yesdaystudio.github.io/Klientska-zona-premium/?meno=Jan+Novák&ucast=Ano&dospeli=1&deti=0&ostatni_menovite=&alergie=&poznamka=V" class="btn-rsvp">POTVRDIŤ ÚČASŤ</a>
     </div>
 
     <div class="story">
@@ -295,12 +279,9 @@
     <div class="divider-line"></div>
 
     <div id="mapa" class="content">
-      <iframe src="https://maps.google.com/maps?q=Piešťany&z=13&output=embed"></iframe>
-
-      <p><a href="https://www.google.com/maps/search/?api=1&query=Kaplnka+Bozskeho+Srdca+Jezisovho+Piestany" target="_blank" rel="noopener noreferrer">Kaplnka Božského Srdca Ježišovho</a></p>
-      <p><a href="https://www.google.com/maps/search/?api=1&query=Kursalon+Piestany" target="_blank" rel="noopener noreferrer">Kursalon</a></p>
-      <p><a href="https://www.google.com/maps/search/?api=1&query=Hotel+Park+Avenue+Piestany" target="_blank" rel="noopener noreferrer">Hotel Park Avenue</a></p>
-      <p><a href="https://www.google.com/maps/search/?api=1&query=Penzion+Diana+Piestany" target="_blank" rel="noopener noreferrer">Penzión Diana</a></p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d17.8284!3d48.5891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDM1JzIwLjgiTiAxN8KwNDknNDIuMiJF!5e0!3m2!1ssk!2ssk!4v1620000000000!5m2!1ssk!2ssk"></iframe>
+      <p><a href="#" target="_blank">Kaplnka Božského Srdca Ježišovho</a></p>
+      <p><a href="#" target="_blank">Kursalon</a></p>
     </div>
 
     <div id="harmonogram" class="content">
@@ -311,9 +292,9 @@
     </div>
 
     <div id="menu" class="content">
-      <p>Polievka</p>
-      <p>Hlavné jedlo</p>
-      <p>Dezert</p>
+      <p>Slepačí vývar s rezancami</p>
+      <p>Sviečková na smotane</p>
+      <p>Domáci jablkový závin</p>
     </div>
   </div>
 </body>
