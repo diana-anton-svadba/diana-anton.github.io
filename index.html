@@ -4,207 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naša svadba</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
-
   <style>
-    body {
-      margin: 0;
-      background-color: #f2ede6;
-      color: #3f3f3f;
-      font-family: 'Raleway', sans-serif;
-      text-align: center;
-      padding: 80px 20px;
-    }
-
-    .container {
-      max-width: 700px;
-      margin: auto;
-      padding: 50px 30px;
-    }
-
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 48px;
-      font-weight: 300;
-      letter-spacing: 4px;
-      line-height: 1.3;
-      margin: 0;
-    }
-
-    .line {
-      width: 80px;
-      height: 1px;
-      background-color: #bfb8ae;
-      margin: 20px auto;
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .story {
-      margin: 40px auto;
-      font-size: 17px;
-      max-width: 500px;
-    }
-
-    .hero-image {
-      margin: 40px auto 20px;
-      max-width: 500px;
-    }
-
-    .hero-image img {
-      width: 100%;
-      border-radius: 10px;
-      display: block;
-    }
-
-    .rsvp-section {
-      margin: 40px 0;
-    }
-
-    .btn-rsvp {
-      display: inline-block;
-      padding: 15px 40px;
-      border: 1px solid #3f3f3f;
-      background: transparent;
-      color: #3f3f3f;
-      text-decoration: none;
-      font-size: 12px;
-      letter-spacing: 3px;
-      transition: all 0.4s ease;
-      font-weight: 400;
-    }
-
-    .btn-rsvp:hover {
-      background: #3f3f3f;
-      color: #f2ede6;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 40px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      cursor: pointer;
-      letter-spacing: 2px;
-      font-size: 13px;
-      color: #6a6a6a;
-      position: relative;
-    }
-
-    .button::after {
-      content: "";
-      display: block;
-      width: 0;
-      height: 1px;
-      background: #6a6a6a;
-      transition: width 0.3s ease;
-      margin: 5px auto 0;
-    }
-
-    .button:hover::after {
-      width: 100%;
-    }
-
-    .divider-line {
-      width: 100%;
-      max-width: 300px;
-      height: 1px;
-      background-color: #d8d2c8;
-      margin: 30px auto 10px;
-    }
-
-    .content {
-      display: none;
-      margin-top: 30px;
-      animation: fadeIn 0.3s ease;
-    }
-
-    /* ŠTÝL PRE MAPU A TLAČIDLÁ MAPY */
-    .map-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 20px;
-      align-items: center;
-    }
-
-    .map-link {
-      font-size: 13px;
-      letter-spacing: 1px;
-      cursor: pointer;
-      color: #7a7269;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-
-    .map-link:hover {
-      color: #3f3f3f;
-    }
-
-    iframe {
-      width: 100%;
-      height: 400px;
-      border: 1px solid #d8d2c8;
-      margin-top: 15px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 640px) {
-      body { padding: 50px 16px; }
-      .container { padding: 30px 16px; }
-      h1 { font-size: 40px; }
-      p { font-size: 17px; }
-    }
+    body { margin: 0; background-color: #f2ede6; color: #3f3f3f; font-family: 'Raleway', sans-serif; text-align: center; padding: 80px 20px; }
+    .container { max-width: 700px; margin: auto; padding: 50px 30px; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; letter-spacing: 4px; line-height: 1.3; margin: 0; }
+    .line { width: 80px; height: 1px; background-color: #bfb8ae; margin: 20px auto; }
+    p { font-size: 18px; line-height: 1.6; }
+    .hero-image { margin: 40px auto 20px; max-width: 500px; }
+    .hero-image img { width: 100%; border-radius: 10px; display: block; background: #eee; min-height: 200px; }
+    .rsvp-section { margin: 40px 0; }
+    .btn-rsvp { display: inline-block; padding: 15px 40px; border: 1px solid #3f3f3f; background: transparent; color: #3f3f3f; text-decoration: none; font-size: 12px; letter-spacing: 3px; transition: 0.3s; font-weight: 400; cursor: pointer; }
+    .btn-rsvp:hover { background: #3f3f3f; color: #f2ede6; }
+    .buttons { display: flex; justify-content: center; gap: 30px; margin-top: 40px; flex-wrap: wrap; }
+    .button { cursor: pointer; letter-spacing: 2px; font-size: 13px; color: #6a6a6a; position: relative; padding: 5px; }
+    .button::after { content: ""; display: block; width: 0; height: 1px; background: #6a6a6a; transition: width 0.3s ease; margin: 5px auto 0; }
+    .button:hover::after { width: 100%; }
+    .divider-line { width: 100%; max-width: 300px; height: 1px; background-color: #d8d2c8; margin: 30px auto 10px; }
+    .content { display: none; margin-top: 30px; animation: fadeIn 0.3s ease; }
+    .map-nav { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; align-items: center; }
+    .map-link { font-size: 13px; letter-spacing: 1px; cursor: pointer; color: #7a7269; text-decoration: underline; }
+    iframe { width: 100%; height: 400px; border: 1px solid #d8d2c8; margin-top: 15px; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { body { padding: 50px 16px; } h1 { font-size: 40px; } }
   </style>
-
-  <script>
-    function toggle(id) {
-      const sections = ["mapa", "harmonogram", "menu"];
-      sections.forEach(section => {
-        const el = document.getElementById(section);
-        if (!el) return;
-        if (section === id) {
-          el.style.display = el.style.display === "block" ? "none" : "block";
-        } else {
-          el.style.display = "none";
-        }
-      });
-    }
-
-    // FUNKCIA NA PREPÍNANIE MAPY
-    function updateMap(location) {
-      const mapFrame = document.getElementById('wedding-map');
-      let url = "";
-
-      switch(location) {
-        case 'kaplnka':
-          url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2621.574676104443!2d17.842345576891637!3d48.5912166195505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b3f309995836d%3A0x600213769917532a!2sKaplnka%20Bo%C5%BEsk%C3%A9ho%20Srdca%20Je%C5%BEi%C5%A1ovho!5e0!3m2!1ssk!2ssk!4v1710000000000!5m2!1ssk!2ssk";
-          break;
-        case 'kursalon':
-          url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2621.656512345678!2d17.840000000000003!3d48.590000000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b3f3a8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sKursalon%20Pie%C5%A1%C5%A5any!5e0!3m2!1ssk!2ssk!4v1710000000001!5m2!1ssk!2ssk";
-          break;
-        case 'parkavenue':
-          url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2621.600000000000!2d17.84100000000000!3d48.59100000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b3f3a8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sHotel%20Park%20Avenue!5e0!3m2!1ssk!2ssk!4v1710000000002!5m2!1ssk!2ssk";
-          break;
-        case 'diana':
-          url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2621.200000000000!2d17.82800000000000!3d48.59800000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b3f3a8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sPenzion%20Diana!5e0!3m2!1ssk!2ssk!4v1710000000003!5m2!1ssk!2ssk";
-          break;
-      }
-      mapFrame.src = url;
-    }
-  </script>
 </head>
 <body>
   <div class="container">
@@ -213,35 +36,61 @@
     <div class="line"></div>
 
     <p>Vitajte na našej svadobnej stránke ♥</p>
-    <p style="letter-spacing: 2px; margin-top: 10px;">19. september 2026</p>
-
     <div class="hero-image">
-      <img src="images/rings.jpg" alt="Diana a Anton">
+      <img src="images/rings.jpg" alt="Svadobné prstene">
     </div>
 
     <div class="rsvp-section">
-      <p style="font-size: 14px; margin-bottom: 20px; color: #7a7269;">Prosíme o potvrdenie vašej účasti do 31.7.2026</p>
-      <a href="https://yesdaystudio.github.io/Klientska-zona-premium/?meno=Jan+Novák&ucast=Ano&dospeli=1&deti=0&ostatni_menovite=&alergie=&poznamka=V" class="btn-rsvp">POTVRDIŤ ÚČASŤ</a>
-    </div>
-
-    <div class="story">
-      <p>
-        Kde sa všetko začalo, tam aj pokračuje. Prvý pohľad v Piešťanskom pivovare,
-        prvá pusa neďaleko a uzavretie manželstva tiež v Piešťanoch. Medzitým sa nám
-        za 9 rokov spoločného života prihodili dve krásne deti a dva tituly, byt a mačka,
-        ale láska, tá za tie roky narástla.
-      </p>
+      <a href="https://yesdaystudio.github.io/Klientska-zona-premium/?meno=Host" class="btn-rsvp">POTVRDIŤ ÚČASŤ</a>
     </div>
 
     <div class="buttons">
-      <div class="button" onclick="toggle('mapa')">MAPA</div>
-      <div class="button" onclick="toggle('harmonogram')">HARMONOGRAM</div>
-      <div class="button" onclick="toggle('menu')">MENU</div>
+      <div class="button" onclick="toggleSection('mapa')">MAPA</div>
+      <div class="button" onclick="toggleSection('harmonogram')">HARMONOGRAM</div>
+      <div class="button" onclick="toggleSection('menu')">MENU</div>
     </div>
 
     <div class="divider-line"></div>
 
     <div id="mapa" class="content">
       <div class="map-nav">
-        <span class="map-link" onclick="updateMap('kaplnka')">Miesto sobáša (Kaplnka)</span>
-        <span class="map-link" onclick="updateMap('kursalon')">M
+        <span class="map-link" onclick="updateMap('kaplnka')">Miesto sobáša</span>
+        <span class="map-link" onclick="updateMap('kursalon')">Miesto hostiny</span>
+        <span class="map-link" onclick="updateMap('park')">Hotel Park Avenue</span>
+      </div>
+      <iframe id="wedding-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2629.417084534346!2d17.8415!3d48.5911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4711394c8e77843d%3A0xc39958742e88a381!2sKursalon%20Pie%C5%A1%C5%A5any!5e0!3m2!1ssk!2ssk!4v1710000000000!5m2!1ssk!2ssk"></iframe>
+    </div>
+
+    <div id="harmonogram" class="content">
+      <p>15:00 – Sobáš<br>17:00 – Večera<br>20:00 – Zábava</p>
+    </div>
+
+    <div id="menu" class="content">
+      <p>Slepačí vývar<br>Sviečková na smotane<br>Dezert</p>
+    </div>
+  </div>
+
+  <script>
+    // FUNKCIA NA PREPÍNANIE SEKCII
+    function toggleSection(id) {
+      const sections = ["mapa", "harmonogram", "menu"];
+      sections.forEach(s => {
+        const el = document.getElementById(s);
+        if (s === id) {
+          el.style.display = (el.style.display === "block") ? "none" : "block";
+        } else {
+          el.style.display = "none";
+        }
+      });
+    }
+
+    // FUNKCIA NA ZMENU MAPY
+    function updateMap(loc) {
+      const frame = document.getElementById('wedding-map');
+      if (loc === 'kaplnka') frame.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2629.56!2d17.8365!3d48.5888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDM1JzE5LjgiTiAxN8KwNTAnMTEuNCJF!5e0!3m2!1ssk!2ssk!4v1710000000000";
+      if (loc === 'kursalon') frame.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2629.41!2d17.8415!3d48.5911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4711394c8e77843d%3A0xc39958742e88a381!2sKursalon%20Pie%C5%A1%C5%A5any!5e0!3m2!1ssk!2ssk!4v1710000000000";
+      if (loc === 'park') frame.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2629.45!2d17.8405!3d48.5905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4711394c80000000%3A0x0!2zNDjCsDM1JzI1LjgiTiAxN8KwNTAnMjUuOCJF!5e0!3m2!1ssk!2ssk!4v1710000000000";
+    }
+  </script>
+</body>
+</html>
