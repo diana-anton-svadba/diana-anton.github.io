@@ -1,467 +1,257 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Naša svadba | Diana & Anton</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naša svadba | Diana & Anton</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #f6f1eb;
-      --text: #3e3a36;
-      --muted: #8b8178;
-      --line: #d8cfc5;
-      --card: rgba(255, 255, 255, 0.55);
-      --button-bg: #3e3a36;
-      --button-text: #f6f1eb;
+<style>
+:root {
+  --bg:#f6f1eb;
+  --text:#3e3a36;
+  --muted:#8b8178;
+  --line:#d8cfc5;
+}
+
+body {
+  margin:0;
+  background:var(--bg);
+  font-family:'Raleway', sans-serif;
+  color:var(--text);
+  text-align:center;
+  padding:40px 20px 70px;
+}
+
+.container {
+  max-width:720px;
+  margin:auto;
+}
+
+.line {
+  width:70px;
+  height:1px;
+  background:var(--line);
+  margin:20px auto;
+}
+
+h1 {
+  font-family:'Cormorant Garamond', serif;
+  font-size:52px;
+  font-weight:400;
+  margin:0;
+}
+
+.date {
+  font-size:12px;
+  letter-spacing:3px;
+  color:var(--muted);
+  margin-top:20px;
+}
+
+.hero img {
+  width:100%;
+  border-radius:14px;
+  margin:40px 0 20px;
+}
+
+.btn {
+  display:inline-block;
+  border:1px solid var(--text);
+  padding:12px 28px;
+  font-size:11px;
+  letter-spacing:3px;
+  text-decoration:none;
+  color:var(--text);
+  margin-top:15px;
+}
+
+.story {
+  margin:40px auto;
+  max-width:500px;
+  line-height:1.8;
+}
+
+.buttons {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.button {
+  cursor:pointer;
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  background:none;
+  border:none;
+  color:var(--muted);
+}
+
+.button.active {
+  color:var(--text);
+}
+
+.content {
+  display:none;
+  margin-top:25px;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,0.6);
+}
+
+.place-card {
+  margin:15px 0;
+}
+
+.place-title {
+  font-size:11px;
+  letter-spacing:2px;
+  color:var(--muted);
+}
+
+.place-name {
+  font-family:'Cormorant Garamond', serif;
+  font-size:24px;
+}
+
+.place-link {
+  font-size:11px;
+  letter-spacing:2px;
+  text-decoration:none;
+  border-bottom:1px solid #999;
+  color:var(--text);
+}
+
+.timeline strong {
+  font-family:'Cormorant Garamond', serif;
+}
+
+.color-palette {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:15px 0;
+}
+
+.color-dot {
+  width:22px;
+  height:22px;
+  border-radius:50%;
+}
+
+</style>
+
+<script>
+function toggle(id){
+  const sections=["mapa","harmonogram","menu","dresscode"];
+  const buttons=document.querySelectorAll(".button");
+
+  sections.forEach(sec=>{
+    let el=document.getElementById(sec);
+    if(sec===id){
+      el.style.display = el.style.display==="block" ? "none":"block";
+    } else {
+      el.style.display="none";
     }
+  });
 
-    * {
-      box-sizing: border-box;
-    }
+  buttons.forEach(btn=>{
+    btn.classList.toggle("active", btn.dataset.target===id);
+  });
+}
+</script>
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Raleway', sans-serif;
-      text-align: center;
-      padding: 42px 20px 72px;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 10px;
-    }
-
-    .top-line,
-    .bottom-line {
-      width: 72px;
-      height: 1px;
-      background-color: var(--line);
-      margin: 0 auto 24px;
-    }
-
-    .bottom-line {
-      margin: 24px auto 0;
-    }
-
-    .eyebrow {
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 58px;
-      font-weight: 400;
-      letter-spacing: 3px;
-      line-height: 1.1;
-      margin: 0;
-    }
-
-    .date {
-      margin-top: 26px;
-      font-size: 13px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .intro {
-      margin-top: 26px;
-      font-size: 18px;
-      line-height: 1.8;
-    }
-
-    .hero-image {
-      margin: 42px auto 28px;
-      max-width: 540px;
-    }
-
-    .hero-image img {
-      width: 100%;
-      display: block;
-      border-radius: 14px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.07);
-    }
-
-    .rsvp-section {
-      margin: 10px 0 42px;
-    }
-
-    .rsvp-note {
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    .btn-rsvp {
-      display: inline-block;
-      padding: 14px 34px;
-      border: 1px solid var(--button-bg);
-      background: transparent;
-      color: var(--button-bg);
-      text-decoration: none;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      transition: all 0.35s ease;
-    }
-
-    .btn-rsvp:hover {
-      background: var(--button-bg);
-      color: var(--button-text);
-    }
-
-    .story {
-      max-width: 620px;
-      margin: 0 auto 42px;
-      padding: 0 10px;
-    }
-
-    .story p {
-      font-size: 17px;
-      line-height: 1.9;
-      color: var(--text);
-      margin: 0;
-    }
-
-    .divider-line {
-      width: 100%;
-      max-width: 260px;
-      height: 1px;
-      background-color: var(--line);
-      margin: 28px auto 22px;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 22px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      cursor: pointer;
-      border: none;
-      background: none;
-      padding: 8px 4px;
-      font-family: 'Raleway', sans-serif;
-      font-size: 12px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--muted);
-      position: relative;
-    }
-
-    .button::after {
-      content: "";
-      display: block;
-      width: 0;
-      height: 1px;
-      background: var(--text);
-      transition: width 0.3s ease;
-      margin: 7px auto 0;
-    }
-
-    .button:hover,
-    .button.active {
-      color: var(--text);
-    }
-
-    .button:hover::after,
-    .button.active::after {
-      width: 100%;
-    }
-
-    .content {
-      display: none;
-      margin-top: 30px;
-      animation: fadeIn 0.35s ease;
-      padding: 28px 24px;
-      background: var(--card);
-      border: 1px solid rgba(216, 207, 197, 0.9);
-      border-radius: 16px;
-      backdrop-filter: blur(3px);
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      font-weight: 400;
-      margin: 0 0 18px;
-      letter-spacing: 1px;
-    }
-
-    .section-intro {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 18px;
-      line-height: 1.7;
-    }
-
-    .place-card {
-      background: rgba(255, 255, 255, 0.75);
-      border: 1px solid #ddd2c7;
-      border-radius: 14px;
-      padding: 18px 20px;
-      margin: 14px 0;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .place-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
-    }
-
-    .place-title {
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .place-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 27px;
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }
-
-    .place-note {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-
-    .place-link {
-      display: inline-block;
-      text-decoration: none;
-      color: var(--text);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-bottom: 1px solid rgba(62, 58, 54, 0.5);
-      padding-bottom: 2px;
-      transition: opacity 0.25s ease;
-    }
-
-    .place-link:hover {
-      opacity: 0.65;
-    }
-
-    .timeline-item,
-    .menu-item,
-    .dresscode-item {
-      margin: 14px 0;
-      font-size: 17px;
-      line-height: 1.8;
-    }
-
-    .timeline-item strong {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      font-weight: 500;
-      margin-right: 6px;
-    }
-
-    .dresscode-note {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.8;
-      margin-top: 10px;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 640px) {
-      body {
-        padding: 34px 16px 56px;
-      }
-
-      h1 {
-        font-size: 44px;
-      }
-
-      .intro,
-      .story p,
-      .timeline-item,
-      .menu-item,
-      .dresscode-item {
-        font-size: 16px;
-      }
-
-      .content {
-        padding: 22px 16px;
-      }
-
-      .buttons {
-        gap: 14px;
-      }
-
-      .place-name {
-        font-size: 24px;
-      }
-    }
-  </style>
-
-  <script>
-    function toggle(id) {
-      const sections = ["mapa", "harmonogram", "menu", "dresscode"];
-      const buttons = document.querySelectorAll(".button");
-
-      sections.forEach(section => {
-        const el = document.getElementById(section);
-        if (!el) return;
-
-        if (section === id) {
-          const isOpen = el.style.display === "block";
-          el.style.display = isOpen ? "none" : "block";
-        } else {
-          el.style.display = "none";
-        }
-      });
-
-      buttons.forEach(button => {
-        if (button.dataset.target === id) {
-          const target = document.getElementById(id);
-          if (target && target.style.display === "block") {
-            button.classList.add("active");
-          } else {
-            button.classList.remove("active");
-          }
-        } else {
-          button.classList.remove("active");
-        }
-      });
-    }
-  </script>
 </head>
+
 <body>
-  <div class="container">
-    <div class="top-line"></div>
-    <div class="eyebrow">Naša svadba</div>
 
-    <h1>Diana<br>&<br>Anton</h1>
+<div class="container">
 
-    <div class="bottom-line"></div>
+<div class="line"></div>
+<h1>Diana<br>&<br>Anton</h1>
+<div class="line"></div>
 
-    <div class="date">19. september 2026</div>
+<div class="date">19. september 2026</div>
 
-    <p class="intro">Vitajte na našej svadobnej stránke ♥</p>
+<div class="hero">
+<img src="rings.jpg">
+</div>
 
-    <div class="hero-image">
-      <img src="rings.jpg" alt="Svadobné prstene">
-    </div>
+<a class="btn" href="https://yesdaystudio.github.io/Klientska-zona-premium/">Potvrdiť účasť</a>
 
-    <div class="rsvp-section">
-      <div class="rsvp-note">Prosíme o potvrdenie vašej účasti do 31.7.2026</div>
-      <a href="https://yesdaystudio.github.io/Klientska-zona-premium/" class="btn-rsvp">Potvrdiť účasť</a>
-    </div>
+<div class="story">
+Kde sa všetko začalo, tam aj pokračuje. Prvý pohľad v Piešťanskom pivovare, prvá pusa neďaleko a uzavretie manželstva tiež v Piešťanoch.
+</div>
 
-    <div class="story">
-      <p>
-        Kde sa všetko začalo, tam aj pokračuje. Prvý pohľad v Piešťanskom pivovare,
-        prvá pusa neďaleko a uzavretie manželstva tiež v Piešťanoch. Medzitým sa nám
-        za 9 rokov spoločného života prihodili dve krásne deti a dva tituly, byt a mačka,
-        ale láska, tá za tie roky narástla.
-      </p>
-    </div>
+<div class="buttons">
+<button class="button" data-target="mapa" onclick="toggle('mapa')">Mapa</button>
+<button class="button" data-target="harmonogram" onclick="toggle('harmonogram')">Harmonogram</button>
+<button class="button" data-target="menu" onclick="toggle('menu')">Menu</button>
+<button class="button" data-target="dresscode" onclick="toggle('dresscode')">Dress code</button>
+</div>
 
-    <div class="buttons">
-      <button class="button" data-target="mapa" onclick="toggle('mapa')">Mapa</button>
-      <button class="button" data-target="harmonogram" onclick="toggle('harmonogram')">Harmonogram</button>
-      <button class="button" data-target="menu" onclick="toggle('menu')">Menu</button>
-      <button class="button" data-target="dresscode" onclick="toggle('dresscode')">Dress code</button>
-    </div>
+<div id="mapa" class="content">
+<div class="place-card">
+<div class="place-title">Obrad</div>
+<div class="place-name">Kaplnka Božského Srdca Ježišovho</div>
+<a class="place-link" href="https://maps.google.com?q=Kaplnka+Bozskeho+Srdca+Jezisovho+Piestany">Navigovať</a>
+</div>
 
-    <div class="divider-line"></div>
+<div class="place-card">
+<div class="place-title">Hostina</div>
+<div class="place-name">Kursalon Piešťany</div>
+<a class="place-link" href="https://maps.google.com?q=Kursalon+Piestany">Navigovať</a>
+</div>
 
-    <div id="mapa" class="content">
-      <h2 class="section-title">Miesta</h2>
-      <div class="section-intro">
-        Všetky dôležité miesta nájdete nižšie.
-      </div>
+<div class="place-card">
+<div class="place-title">Ubytovanie</div>
+<div class="place-name">Hotel Park Avenue</div>
+<a class="place-link" href="https://maps.google.com?q=Hotel+Park+Avenue+Piestany">Navigovať</a>
+</div>
 
-      <div class="place-card">
-        <div class="place-title">Obrad</div>
-        <div class="place-name">Kaplnka Božského Srdca Ježišovho</div>
-        <div class="place-note">Miesto svadobného obradu v Piešťanoch.</div>
-        <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Kaplnka+Bozskeho+Srdca+Jezisovho+Piestany" target="_blank" rel="noopener noreferrer">Navigovať</a>
-      </div>
+<div class="place-card">
+<div class="place-title">Ubytovanie</div>
+<div class="place-name">Penzión Diana</div>
+<a class="place-link" href="https://maps.google.com?q=Penzion+Diana+Piestany">Navigovať</a>
+</div>
+</div>
 
-      <div class="place-card">
-        <div class="place-title">Hostina</div>
-        <div class="place-name">Kursalon Piešťany</div>
-        <div class="place-note">Svadobná oslava po obrade.</div>
-        <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Kursalon+Piestany" target="_blank" rel="noopener noreferrer">Navigovať</a>
-      </div>
+<div id="harmonogram" class="content timeline">
+<p><strong>15:00</strong> Sobáš</p>
+<p><strong>17:00</strong> Večera</p>
+<p><strong>19:00</strong> Prvý tanec</p>
+<p><strong>20:00</strong> Zábava</p>
+</div>
 
-      <div class="place-card">
-        <div class="place-title">Ubytovanie</div>
-        <div class="place-name">Hotel Park Avenue</div>
-        <div class="place-note">Jedna z možností ubytovania pre hostí.</div>
-        <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Park+Avenue+Piestany" target="_blank" rel="noopener noreferrer">Navigovať</a>
-      </div>
+<div id="menu" class="content">
+<p>Polievka</p>
+<p>Hlavné jedlo</p>
+<p>Dezert</p>
+</div>
 
-      <div class="place-card">
-        <div class="place-title">Ubytovanie</div>
-        <div class="place-name">Penzión Diana</div>
-        <div class="place-note">Ďalšia možnosť ubytovania v Piešťanoch.</div>
-        <a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Penzion+Diana+Piestany" target="_blank" rel="noopener noreferrer">Navigovať</a>
-      </div>
-    </div>
+<div id="dresscode" class="content">
+<p>Elegant / Formal</p>
 
-    <div id="harmonogram" class="content">
-      <h2 class="section-title">Harmonogram</h2>
-      <div class="timeline-item"><strong>15:00</strong> Sobáš</div>
-      <div class="timeline-item"><strong>17:00</strong> Večera</div>
-      <div class="timeline-item"><strong>19:00</strong> Prvý tanec</div>
-      <div class="timeline-item"><strong>20:00</strong> Zábava</div>
-    </div>
+<div class="color-palette">
+<div class="color-dot" style="background:#e6dfd5;"></div>
+<div class="color-dot" style="background:#7a2d2d;"></div>
+<div class="color-dot" style="background:#c27c4b;"></div>
+<div class="color-dot" style="background:#8fa39b;"></div>
+<div class="color-dot" style="background:#2f5d50;"></div>
+<div class="color-dot" style="background:#d6a98f;"></div>
+</div>
 
-    <div id="menu" class="content">
-      <h2 class="section-title">Menu</h2>
-      <div class="menu-item">Polievka</div>
-      <div class="menu-item">Hlavné jedlo</div>
-      <div class="menu-item">Dezert</div>
-    </div>
+<p style="color:#8b8178;">
+Dámy: šaty, kostým<br>
+Páni: oblek alebo košeľa
+</p>
+</div>
 
-    <div id="dresscode" class="content">
-      <h2 class="section-title">Dress code</h2>
-      <div class="section-intro">
-        Radi by sme, aby ste sa cítili pohodlne a zároveň slávnostne.
-      </div>
+</div>
 
-      <div class="dresscode-item">Elegant / Formal</div>
-      <div class="dresscode-note">
-        Dámy: šaty, kostým alebo elegantný overal<br>
-        Páni: oblek alebo košeľa so sakom
-      </div>
-    </div>
-  </div>
 </body>
 </html>
